@@ -25,7 +25,14 @@ Don’t forget to push your finished dashboard to
     margin: 0;
     padding: 0;
   }
-  
+
+  :root {
+    --main-color: rgb(255, 255, 255);
+    --secondary-color: rgb(226, 232, 239);
+    --accent-color: rgb(0, 147, 207);
+    --second-accent-color: rgb(255, 62, 70);
+  }
+
 body{
     width:100vw;
     height: 100vh;
@@ -33,16 +40,18 @@ body{
   
 .masterContainer {
     display: grid;
-    grid-template-columns: 1fr 4fr;
+    grid-template-columns: minmax(15vw, 1fr) minmax(60vw, 4fr);
     grid-template-rows: 1fr 4fr;
-    width: 100%;
+    width: 80%;
     height: 100%;
+    margin: auto;
 }
 
 .sidebarOuterContainer {
   grid-column: 1;
   grid-row: 1 / 3;
-  background-color: rgb(0, 147, 207);
+  background-color: var(--accent-color);
+  color: var(--main-color);
 
   display: grid;
   grid-template-rows: 2fr 1fr;
@@ -60,7 +69,7 @@ body{
   flex-direction: row;
   align-items: center;
 
-  color: #fff;
+  color: var(--main-color);
   padding-left: 1vw;
   padding-right: 1vw;
 }
@@ -89,7 +98,8 @@ h2 {
 .contentContainer {
 grid-column: 2;
 grid-row: 1 / 3;
-background-color: rgb(226, 232, 239);
+background-color: var(--secondary-color);
+/* background-color: blue; */
 
 display: grid;
 grid-template-columns: 3fr 1fr;
@@ -100,7 +110,7 @@ grid-template-rows: 1fr 4fr;
 
   grid-row: 1;
   grid-column: 1 / 3;
-  background-color: rgb(255, 255, 255);
+  background-color: var(--main-color);
 
   display: grid;
   grid-template-columns: 2fr 1fr;
@@ -134,9 +144,9 @@ grid-template-rows: 1fr 4fr;
   width: 75%;
   padding: .75% 0;
   border-radius: 10px;
-  border: 1px solid rgb(226, 232, 239);
+  border: 1px solid var(--secondary-color);
   
-  background-color: rgb(226, 232, 239);
+  background-color: var(--secondary-color);
 }
 
 .notification {
@@ -154,7 +164,6 @@ grid-template-rows: 1fr 4fr;
 .bottom {
   grid-row: 2;
   grid-column: 1 / 3;
-  /* border: 1px solid green; */
 
   display: flex;
   align-items: center;
@@ -178,17 +187,90 @@ grid-template-rows: 1fr 4fr;
   justify-content: space-around;
   width: 50%;
   padding-right: 5%;
-
   gap: 5px;
 }
 
 button {
   border: none;
   border-radius: 1em;
-  background-color: rgb(0, 147, 207);
-  color: #fff;
+  background-color: var(--accent-color);
+  color: var(--main-color);
   padding: 0.5em 1em;
   width: 5rem;
 
   font-size: .7rem;
+}
+
+.projectsContainer {
+  display: grid;
+  grid-template-columns: 2;
+  grid-template-rows: 50px repeat(3, 1fr);
+  gap: 1em;
+  padding: 1em;
+
+  box-sizing: border-box;
+  height: 200px;
+}
+
+.yourProjectsHeader {
+  grid-column: 1 / 3;
+
+}
+
+.project {
+  background-color: var(--main-color);
+  border-left: 0.5em solid var(--second-accent-color);
+  border-radius: 3px;
+  display: grid;
+  grid-row: 1fr 8fr 1fr;
+}
+
+.projectHead {
+  padding-top: 1rem;
+  padding-left: 1rem;
+  font-size: 1em;
+  /* font-weight: bold; */
+  grid-row: 1;
+
+}
+
+.projectBody {
+  padding: 0;
+  padding-left:  1rem;
+  font-size: .75em;
+  opacity: .5;
+  grid-row: 2;
+}
+
+.projectFooter {
+  padding: 1rem;
+  grid-row: 3;
+  display: flex;
+  justify-content: end;
+  gap: 1em;
+}
+
+#project1 {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+#project2 {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+#project3 {
+  grid-column: 1;
+  grid-row: 3;
+}
+
+#project4 {
+  grid-column: 2;
+  grid-row: 3;
+}
+
+.announcementsContainer {
+    grid-column: 2;
+    grid-row: 2 / 5;
 }

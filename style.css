@@ -11,6 +11,7 @@ Choose your own fonts! The design example uses Roboto, which is available with 
   }
 
   :root {
+    --body-color: rgb(236, 236, 236);
     --main-color: rgb(255, 255, 255);
     --secondary-color: rgb(226, 232, 239);
     --accent-color: rgb(0, 147, 207);
@@ -26,6 +27,7 @@ Choose your own fonts! The design example uses Roboto, which is available with 
 body{
     width:100vw;
     height: 100vh;
+    background-color: var(--body-color);
 }
   
 .masterContainer {
@@ -268,59 +270,68 @@ button {
 
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: minmax(200px, 1fr) minmax(200px, 1fr);
 
+  gap: 1rem;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
   align-items: center;
-}
-
-.announcementsAndTrendsContainer > * {
-  margin-right: 1rem;
 }
 
 .ann {
   grid-column: 1 / 2;
   grid-row: 1 / 2;
 
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+
   display: grid;
-  grid-template-rows: 50px 1fr 1fr 1fr;
+  grid-template-rows: 25px 1fr 1fr 1fr;
   gap: 0;
 }
 
 .announcementHeader {
   grid-column: 1 / 2 ;
   grid-row: 1 / 2;
-  align-self: end;
+  align-self: start;
 
-  margin-bottom: 1rem;
-  margin-top: 3rem;
+  padding-bottom: 2rem;
 
   font-size: var(--LG-font-size);
 }
 
 .announcement {
   background-color: var(--main-color);
-
-  border-radius: 3px;
   display: grid;
   grid-row: 1fr 8fr;
-
+  padding-left: 1rem;
   gap: 0;
 }
 
 .announceTitle {
   font-size: var(--MD-font-size);
+  align-self: self-end;
 }
 
 .announceBody {
-  font-size: var(--SM-font-size);
+  font-size: var(--MD-font-size);
   opacity: .5;
 
+}
+
+hr {
+  height: 1px;
+  width: 90%;
+  align-items: center;
 }
 
 .trending{
   grid-column: 1 / 2;
   grid-row: 2 / 3;
-
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto 1fr 1fr 1fr 1fr;
@@ -336,9 +347,6 @@ button {
 
 .trend {
   background-color: var(--main-color);
-
-  border-radius: 3px;
-
   display: flex;
   justify-content: flex-start;
   padding-left: 1rem;
@@ -354,4 +362,21 @@ button {
 .title {
   font-size: var(--SM-font-size);
   opacity: .5;
+}
+
+.ann,
+.trending {
+  padding-right: 1rem;
+  border-radius: 3px;
+}
+
+.headerContainer,
+.trend,
+.project,
+.announcement {
+  box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.2);
+}
+
+hr{
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
 }
